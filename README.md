@@ -35,9 +35,9 @@ To build the virtual machine:
 - Install [VirtualBox](https://virtualbox.org), download Ubuntu 16.04 and create the VM
 - Set up the bridge adapter for Wi-fi and the NAT adapter for port forwarding (SSH)
 - Log in with username `osboxes` and password `osboxes.org`
-- On the server: `sudo apt update` . 
+- On the server: `sudo apt update`<br/>
 `sudo apt install openssh-server`
-- On the client: `ssh osboxes@localhost -p 2222 -X` . 
-`sudo apt install git` . 
-`git clone https://github.com/a-blaise/tutorials` . 
+- On the client: `ssh osboxes@localhost -p 2222 -X`<br/>
+`sudo apt install git`<br/>
+`git clone https://github.com/a-blaise/tutorials`<br/>
 `sudo ./tutorials/config.sh`
