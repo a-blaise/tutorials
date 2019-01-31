@@ -37,7 +37,7 @@ To build the virtual machine:
 - Log in with username `osboxes` and password `osboxes.org`
 - On the server: `sudo apt update`<br/>
 `sudo apt install openssh-server`
-- On the client: `ssh osboxes@localhost -p 2222 -X`<br/>
+- On the client: `ssh -Y osboxes@localhost -p 2222`<br/>
 `sudo apt install git`<br/>
 `git clone https://github.com/a-blaise/tutorials`<br/>
 `sudo ./tutorials/config.sh`
