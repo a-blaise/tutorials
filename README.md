@@ -31,23 +31,13 @@ which contains various examples that you can refer to.
         
 ## Obtaining required software
 
-If you are starting this tutorial at the Spring 2018 P4 Developer Day,
-then we've already provided you with a virtual machine that has all of
-the required software installed.
-
-Otherwise, to complete the exercises, you will need to either build a
-virtual machine or install several dependencies.
-
 To build the virtual machine:
-- Install [Vagrant](https://vagrantup.com) and [VirtualBox](https://virtualbox.org)
-- `cd vm`
-- `vagrant up`
-- Log in with username `p4` and password `p4` and issue the command `sudo shutdown -r now`
-- When the machine reboots, you should have a graphical desktop machine with the required
-software pre-installed.
-
-To install dependencies by hand, please reference the [vm](../vm) installation scripts.
-They contain the dependencies, versions, and installation procedure.
-You can run them directly on an Ubuntu 16.04 machine:
-- `sudo ./root-bootstrap.sh`
-- `sudo ./user-bootstrap.sh`
+- Install [VirtualBox](https://virtualbox.org), download Ubuntu 16.04 and create the VM
+- Set up the bridge adapter for Wi-fi and the NAT adapter for port forwarding (SSH)
+- Log in with username `osboxes` and password `osboxes.org`
+- On the server: `sudo apt update`<br/>
+`sudo apt install openssh-server`
+- On the client: `ssh osboxes@localhost -p 2222 -X`<br/>
+`sudo apt install git`<br/>
+`git clone https://github.com/a-blaise/tutorials`<br/>
+`sudo ./tutorials/config.sh`
