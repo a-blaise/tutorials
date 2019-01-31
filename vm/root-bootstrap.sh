@@ -3,15 +3,11 @@
 # Print commands and exit on errors
 set -xe
 
-DEBIAN_FRONTEND=noninteractive sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
-DEBIAN_FRONTEND=noninteractive sudo add-apt-repository -y ppa:webupd8team/atom
-
 apt-get update
 
 KERNEL=$(uname -r)
 DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
 apt-get install -y --no-install-recommends \
-  atom \
   autoconf \
   automake \
   bison \
@@ -57,7 +53,6 @@ apt-get install -y --no-install-recommends \
   python-pip \
   python-scapy \
   python-setuptools \
-  sublime-text-installer \
   tcpdump \
   unzip \
   vim \
@@ -69,15 +64,8 @@ useradd -m -d /home/p4 -s /bin/bash p4
 echo "p4:p4" | chpasswd
 echo "p4 ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/99_p4
 chmod 440 /etc/sudoers.d/99_p4
+groupadd vboxsf
 usermod -aG vboxsf p4
-
-cd /usr/share/lubuntu/wallpapers/
-cp /home/vagrant/p4-logo.png .
-rm lubuntu-default-wallpaper.png
-ln -s p4-logo.png lubuntu-default-wallpaper.png
-rm /home/vagrant/p4-logo.png
-cd /home/vagrant
-sed -i s@#background=@background=/usr/share/lubuntu/wallpapers/1604-lubuntu-default-wallpaper.png@ /etc/lightdm/lightdm-gtk-greeter.conf
 
 # Disable screensaver
 apt-get -y remove light-locker
